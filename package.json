@@ -1,0 +1,32 @@
+{
+  "name": "project2-crms-web-",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dbConnection.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HoorHasan30/Project2-CRMS-Web-.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/HoorHasan30/Project2-CRMS-Web-/issues"
+  },
+  "homepage": "https://github.com/HoorHasan30/Project2-CRMS-Web-#readme",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "dotenv": "^17.4.2",
+    "ejs": "^6.0.1",
+    "express": "^5.2.1",
+    "express-session": "^1.19.0",
+    "method-override": "^3.0.0",
+    "mongoose": "^9.7.4",
+    "morgan": "^1.11.0"
+  }
+}
