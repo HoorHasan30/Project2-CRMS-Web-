@@ -7,5 +7,25 @@
 </head>
 <body>
     <h1>Sign Up</h1>
+
+    <form action="/auth/sign-up" method="POST">
+
+        <div class="from-group">
+            <label for="username">Username:</label>
+            <input type="text" name="username" id="Username">
+        </div>
+
+        <div class="from-group">
+            <label for="password">Password:</label>
+            <input type="password" name="password" id="password">
+        </div>
+
+        <div class="from-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" name="confirmPassword" id="confirmPassword">
+        </div>
+
+        <button type="submit">Sign Up</button>
+    </form>
 </body>
 </html>
