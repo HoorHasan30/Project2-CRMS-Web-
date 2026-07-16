@@ -5,10 +5,20 @@ const categorySchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    subCategories: {
-        type: [String]
+    isSubCategory: {
+        type: Boolean,
+        default: false
+    },
+    parentCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Category'
+    },
+    isActive: {
+        type: Boolean,
+        default: true
     }
-}, {timestamps: true})
+
+}, { timestamps: true })
 
 const Category = new mongoose.model("Category", categorySchema)
 

@@ -17,6 +17,7 @@ const faqController = require('./controllers/faq.controller')
 const statusController = require('./controllers/status.controller')
 const ticketController = require('./controllers/ticket.controller')
 const analysisController = require('./controllers/analysis.controller.js')
+const categoryController = require('./controllers/category.controller.js')
 
 const isAdmin = require('./middleware/is-admin.js')
 const isSignedIn = require('./middleware/is-signed-in.js')
@@ -55,6 +56,7 @@ app.use('/',indexController)
 app.use('/admin', isAdmin, analysisController) // Restricted to admin role only
 app.use('/faq', faqController)
 app.use('/tickets', ticketController)
+app.use('/categories',  categoryController)
 
 
 // connect to database and listen on Port 3000
