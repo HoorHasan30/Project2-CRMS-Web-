@@ -4,7 +4,12 @@ const router = require('express').Router()
 // GET:
 router.get('/not-authorized',
     (req, res) => {
-        res.render('status/notAuthorized.ejs')
+        try{
+            res.render('status/notAuthorized.ejs')
+        }
+        catch(err){
+            console.log(err)
+        }  
     }
 )
 
