@@ -1,0 +1,65 @@
+# Project Name
+CRMS
+
+## Overview
+
+## Screenshots
+
+
+## Technologies Used
+- HTML
+- CSS
+- JS
+- GitHub
+
+## Getting Started
+
+## Installation
+
+## User Stories
+### Guest (Not Logged In User)
+- As a guest, I want to access the home page so that I can learn about the system.
+- As a guest, I want to view the About Us page so that I can understand the organization's services.
+
+### Admin
+- As an admin, I want to log in securely so that I can manage the system.
+- As an admin, I want to view the dashboard so that I can monitor overall system activity.
+- As an admin, I want to view ticket analytics so that I can identify trends and performance.
+- As an admin, I want to view all submitted tickets so that I can manage support requests.
+- As an admin, I want to assign a technician to a ticket so that issues are handled by the appropriate staff.
+- As an admin, I want to assign a priority level to each ticket so that urgent issues are addressed first.
+- As an admin, I want to update the status of tickets so that users are informed of their progress.
+- As an admin, I want to reject invalid or duplicate tickets so that only legitimate requests are processed.
+- As an admin, I want to create, edit, and delete FAQ entries so that users have access to accurate information.
+- As an admin, I want to log out securely so that my account remains protected
+
+### User 
+- As a user, I want to log in securely so that I can access my account.
+- As a user, I want to view my dashboard so that I can quickly access my support requests.
+- As a user, I want to submit a new ticket so that I can report an issue.
+- As a user, I want to view all of my submitted tickets so that I can track their progress.
+- As a user, I want to edit my ticket before it is resolved so that I can correct any mistakes.
+- As a user, I want to delete a ticket that is no longer needed so that my ticket list stays organized.
+- As a user, I want to see the status of my tickets so that I know whether they are pending, assigned, or completed.
+- As a user, I want to read the FAQ section so that I can solve common problems without submitting a ticket.
+- As a user, I want to provide feedback after my ticket is resolved so that I can evaluate the support service.
+- As a user, I want to log out securely so that no one else can access my account.
+
+
+## Database Design
+![erd](public/assets/ERD.png)
+
+
+## Routes
+
+
+
+## Features
+
+
+
+## Future Enhancements
+
+
+
+## Credits
