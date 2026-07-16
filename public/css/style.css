@@ -1,0 +1,10 @@
+*{
+    --body: #F5EFEB;
+    --text: #0F1929;
+    --primary: #53697F;
+    --secondary: #8AA7BC;
+}
+body{
+    margin: 0;
+    background-color: var(--body);
+}
