@@ -3,4 +3,4 @@ const isAdmin = (req, res, next) => {
   res.redirect("/status/");
 };
 
-module.exports = isSignedIn;
+module.exports = isAdmin;
