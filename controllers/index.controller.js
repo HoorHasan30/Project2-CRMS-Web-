@@ -5,7 +5,7 @@ const router = require('express').Router()
 router.get('/home', 
     (req, res) => {
        try{
-        res.render('index.ejs')
+        res.render('index.ejs', {user: req.session.user})
        }
        catch(err){
         console.log(err)

@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const isAdmin = require('../middleware/is-admin.js');
 const User = require("../models/user.js");
 const bcrypt = require("bcrypt");
 
@@ -33,6 +34,7 @@ router.post('/sign-up',
             // hash the pass
             const hashedPassword = bcrypt.hashSync(req.body.password, 10);
             const username = req.body.username
+
             // Create User
             await User.create({
                 username,
@@ -45,7 +47,8 @@ router.post('/sign-up',
             // set user Session
             req.session.user = {
                 username,
-                _id: getUser._id
+                _id: getUser._id,
+                isAdmin: getUser.isAdmin
             };
 
             // redirect to home page 
@@ -92,7 +95,8 @@ router.post('/login',
             // set user Session
             req.session.user = {
                 username: userIsInDb.username,
-                _id: userIsInDb._id
+                _id: userIsInDb._id,
+                isAdmin: userIsInDb.isAdmin
             }
 
             // redirect to home page 

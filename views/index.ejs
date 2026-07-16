@@ -7,5 +7,16 @@
 </head>
 <body>
     <h1>Home</h1>
+
+    <% if (user) {%> <!--if Logged in   -->
+        <% if(user.isAdmin) { %> <!-- If Admin -->
+            <p>Welcome Admin</p>
+        <% } else {%> <!-- if user -->
+            <p>Welcome User</p>
+        <% } %>
+    <% } else { %> <!-- NOt Logged in -->
+        <p>Welcome Guest</p>
+    <% } %>
+
 </body>
 </html>
