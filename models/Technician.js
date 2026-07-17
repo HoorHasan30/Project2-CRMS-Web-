@@ -11,6 +11,10 @@ const technicianSchema = new mongoose.Schema({
     },
     contactNumber: {
         type: Number
+    },
+    isActive: {
+        type: Boolean,
+        default: true
     }
 }, {timestamps: true})
 

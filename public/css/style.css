@@ -8,3 +8,11 @@ body{
     margin: 0;
     background-color: var(--body);
 }
+
+/* Technicians */
+.info{
+    display: flex;
+}
+.edit{
+    display: none;
+}

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technicians</title>
+</head>
+<body>
+    <h1>Technicians</h1>
+
+    <form action="/technician" method="POST">
+        <div class="form-group">
+            <label for="firstName">First Name:</label>
+            <input type="text" id="firstName" name="firstName">
+
+            <label for="lastName">Last Name:</label>
+            <input type="text" id="lastName" name="lastName">
+
+            <label for="contactNumber">Contact Number:</label>
+            <input type="number" id="contactNumber" name="contactNumber">
+
+            <div>
+                <button type="submit">Add</button>
+            </div>
+        </div>
+    </form>
+
+    <div class="tech-container">
+        <% if(allTech) { %> 
+            <% allTech.forEach( tech => { %> 
+                <div class="tech-card">
+
+                    <div class="info">
+                        <p><%= tech.firstName %>  <%= tech.lastName %></p>
+                        <p><%= tech.contactNumber %></p>
+
+                        <% if(tech.isActive){ %> 
+                            <p>Active</p>
+                        <% } else { %>
+                            <p>Not Active</p>
+                        <% } %>
+                        
+                        <button class="edit-tech">Edit</button>
+                    </div>
+
+                    <div class="edit">
+                        <form action="/technician/<%= tech._id %>?_method=PUT" method="POST">
+                            <div class="form-group">
+                                <label for="firstName">First Name:</label>
+                                <input type="text" id="firstName" name="firstName" value="<%= tech.firstName %>">
+
+                                <label for="lastName">Last Name:</label>
+                                <input type="text" id="lastName" name="lastName" value="<%= tech.lastName %>">
+
+                                <label for="contactNumber">Contact Number:</label>
+                                <input type="number" id="contactNumber" name="contactNumber" value="<%= tech.contactNumber %>">
+
+                                <label for="isActive">Active?</label>
+                                <input type="checkbox" name="isActive" <%= tech.isActive ? "checked" : " " %>>
+
+                                <div>
+                                    <button type="submit" class="save-tech">Save</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            <% }) %>
+        <% } %>
+    </div>
+</body>
+</html>
+
+
+    <script> 
+        // Cached Element
+        const info = document.querySelectorAll('.info')
+        const edit = document.querySelectorAll('.edit')
+        const editBtn = document.querySelectorAll('.edit-tech')
+
+        const saveBtn = document.querySelectorAll('.save-tech')
+
+
+        // Functions
+        function switchToEditMode(){
+            info.style.display = "none"
+            edit.style.display = "flex"
+        }
+
+        function switchToInfoMode(){
+            info.style.display = "flex"
+            edit.style.display = "none"
+        }
+
+        // Event Listener 
+        editBtn.forEach(
+            btn => btn.addEventListener('click', switchToEditMode)
+        )
+
+        saveBtn.forEach( 
+            btn => btn.addEventListener('click', switchToInfoMode)
+        )
+    </script>
