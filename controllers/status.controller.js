@@ -2,7 +2,7 @@ const router = require('express').Router()
 
 // Not Authorized 
 // GET:
-router.get('/not-authorized',
+router.get('/forbidden',
     (req, res) => {
         try{
             res.render('status/notAuthorized.ejs')

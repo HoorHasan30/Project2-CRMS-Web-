@@ -51,7 +51,70 @@ CRMS
 
 
 ## Routes
+### Index 
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | /home | Display Home Page|
+| GET | /about | Display About Page |
 
+### Auth
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | auth/sign-up | Sign Up Page |
+| POST | auth/sign-up | Create User Account |
+| GET | auth/login | Login Page |
+| POST | auth/login | Login User into System |
+| GET | auth/sign-out | Signout User From System |
+
+### FAQ
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | /faq | FAQ Page |
+| GET | /faq/new | New FAQ Page |
+| POST | /faq | Create New FAQ |
+| GET | /faq/:id/edit / Edit FAQ Page |
+| PUT | /faq/:id / Edit FAQ |
+| DELETE | /faq/:id/delete | Delete FAQ |
+
+### Category
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | /categories | All Categories Page |
+| POST | /categories | Create New Category |
+| GET | /categories/:id | Show Category Details |
+| POST | /categories/:id | Create Sub-Category |
+| PUT | /categories/:id/edit | Update Category |
+| PUT | /categories/:id/editsub | Upadte Sub-Category|
+
+### Status
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | /forbidden | Show Forbidden Page |
+
+### Technician
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+| GET | /technician | Show All Technicians Page |
+| POST | /technician | Add New Technicians |
+| PUT | /technician/:id | Edit Technician Details |
+
+
+### Tickets
+---
+| Method | Route | Description |
+|---------|-------|-------------|
+
+
+### Analysis
+---
+| Method | Route | Description |
+|---------|-------|-------------|
 
 
 ## Features
