@@ -75,8 +75,8 @@ CRMS
 | GET | /faq | FAQ Page |
 | GET | /faq/new | New FAQ Page |
 | POST | /faq | Create New FAQ |
-| GET | /faq/:id/edit / Edit FAQ Page |
-| PUT | /faq/:id / Edit FAQ |
+| GET | /faq/:id/edit | Edit FAQ Page |
+| PUT | /faq/:id | Edit FAQ |
 | DELETE | /faq/:id/delete | Delete FAQ |
 
 ### Category
