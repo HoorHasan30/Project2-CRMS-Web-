@@ -4,23 +4,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit FAQ</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Edit FAQ</h1>
 
-    <form action="/faq/<%= faq._id %>?_method=PUT" method="POST">
-        
-        <div class="form-group">
-            <label for="question"></label>
-            <input type="text" name="question" id="question" value="<%= faq.question %>">
-        </div>
+    <%- include('../partials/navbar') %>
+    <div class="content">
+        <h1>Edit FAQ</h1>
 
-        <div class="form-group">
-            <label for="answer"></label>
-            <textarea name="answer" id="answer"><%= faq.answer %></textarea>
-        </div>
+        <form action="/faq/<%= faq._id %>?_method=PUT" method="POST">
+            
+            <div class="form-group">
+                <label for="question"></label>
+                <input type="text" name="question" id="question" value="<%= faq.question %>">
+            </div>
 
-        <button type="submit">Save</button>
-    </form>
+            <div class="form-group">
+                <label for="answer"></label>
+                <textarea name="answer" id="answer"><%= faq.answer %></textarea>
+            </div>
+
+            <button type="submit">Save</button>
+        </form>
+    </div>
 </body>
 </html>

@@ -4,23 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-    <h1>Login</h1>
 
-    <form action="/auth/login" method="POST">
+    <%- include('../partials/navbar') %>
+    
+    <div class="content">
+        <h1>Login</h1>
 
-        <div class="from-group">
-            <label for="username">Username:</label>
-            <input type="text" name="username" id="Username">
-        </div>
+        <form action="/auth/login" method="POST">
 
-        <div class="from-group">
-            <label for="password">Password:</label>
-            <input type="password" name="password" id="password">
-        </div>
+            <div class="from-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="Username">
+            </div>
 
-        <button type="submit">Login</button>
-    </form>
+            <div class="from-group">
+                <label for="password">Password:</label>
+                <input type="password" name="password" id="password">
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+    </div>
 </body>
 </html>
