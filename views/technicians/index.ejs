@@ -45,7 +45,7 @@
                                 <p>Not Active</p>
                             <% } %>
                             
-                            <button class="edit-tech">Edit</button>
+                            <button type="button" class="edit-tech">Edit</button>
                         </div>
 
                         <div class="edit">
@@ -74,36 +74,32 @@
             <% } %>
         </div>
     </div>
-</body>
-</html>
-
-
     <script> 
-        // Cached Element
-        const info = document.querySelectorAll('.info')
-        const edit = document.querySelectorAll('.edit')
-        const editBtn = document.querySelectorAll('.edit-tech')
-
-        const saveBtn = document.querySelectorAll('.save-tech')
-
+        // Cached Elements
+        const editBtns = document.querySelectorAll('.edit-tech')
+        const saveBtns = document.querySelectorAll('.save-tech')
 
         // Functions
         function switchToEditMode(){
-            info.style.display = "none"
-            edit.style.display = "flex"
+            const card = this.closest('.tech-card')
+            card.querySelector('.info').style.display = "none"
+            card.querySelector('.edit').style.display = "flex"
         }
 
         function switchToInfoMode(){
-            info.style.display = "flex"
-            edit.style.display = "none"
+            const card = this.closest('.tech-card')
+            card.querySelector('.info').style.display = "flex"
+            card.querySelector('.edit').style.display = "none"
         }
 
-        // Event Listener 
-        editBtn.forEach(
+        // Event Listeners
+        editBtns.forEach(
             btn => btn.addEventListener('click', switchToEditMode)
         )
 
-        saveBtn.forEach( 
+        saveBtns.forEach( 
             btn => btn.addEventListener('click', switchToInfoMode)
         )
     </script>
+</body>
+</html>

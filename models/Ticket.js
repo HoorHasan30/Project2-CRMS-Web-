@@ -16,6 +16,10 @@ const ticketSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Category"
     },
+    subCategory: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Category"
+    },
     description: {
         type: String,
         required: true
