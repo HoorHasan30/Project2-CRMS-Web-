@@ -10,6 +10,10 @@ CRMS
 - HTML
 - CSS
 - JS
+- Node.js
+- Express
+- MongoDB
+- EJS
 - GitHub
 
 ## Getting Started
@@ -18,8 +22,8 @@ CRMS
 
 ## User Stories
 ### Guest (Not Logged In User)
-- As a guest, I want to access the home page so that I can learn about the system.
-- As a guest, I want to view the About Us page so that I can understand the organization's services.
+- - As a guest, I want to sign-up in the system as a new user
+- As a guest, I want to login in the system 
 
 ### Admin
 - As an admin, I want to log in securely so that I can manage the system.
@@ -67,17 +71,6 @@ CRMS
 | GET | auth/login | Login Page |
 | POST | auth/login | Login User into System |
 | GET | auth/sign-out | Signout User From System |
-
-### FAQ
----
-| Method | Route | Description |
-|---------|-------|-------------|
-| GET | /faq | FAQ Page |
-| GET | /faq/new | New FAQ Page |
-| POST | /faq | Create New FAQ |
-| GET | /faq/:id/edit | Edit FAQ Page |
-| PUT | /faq/:id | Edit FAQ |
-| DELETE | /faq/:id/delete | Delete FAQ |
 
 ### Category
 ---
