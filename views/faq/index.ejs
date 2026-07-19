@@ -13,28 +13,37 @@
     <div class="content">
         <h1>All FAQs</h1>
 
-        <% if(user.isAdmin){ %> 
-            <a href="/faq/new">Add</a>
-        <% } %>
-
-        
-        <% allFaq.forEach( q => { %>
-            <div class="faq-card">
-                <p><%= q.question %></p>
-                <p><%= q.answer %></p>
-
+        <div class="header">
+            <div class="new-btn">
                 <% if(user.isAdmin){ %> 
-                    <form action="/faq/<%= q._id %>/delete?_method=DELETE" method="POST">
-                        <button type="submit" id="delete">Delete</button>
-                    </form>
-
-                    <form action="/faq/<%= q._id %>/edit" method="GET">
-                        <button type="submit" id="edit">Edit</button>
-                    </form>    
+                    <p><a href="/faq/new">+ Add</a></p>
                 <% } %>
-
             </div>
-        <% }) %>
+        </div>
+        
+
+        <div class="faq-container">
+            <% allFaq.forEach( q => { %>
+                <div class="faq-card">
+                    <div class="faq">
+                        <p>Q: <%= q.question %></p>
+                        <p>A: <%= q.answer %></p>
+                    </div>
+                    
+                    <div class="faq-btns">
+                        <% if(user.isAdmin){ %> 
+                            <form action="/faq/<%= q._id %>/delete?_method=DELETE" method="POST">
+                                <button type="submit" class="delete">Delete</button>
+                            </form>
+
+                            <form action="/faq/<%= q._id %>/edit" method="GET">
+                                <button type="submit" id="edit">Edit</button>
+                            </form>    
+                        <% } %>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
     </div>
 </body>
 </html>
