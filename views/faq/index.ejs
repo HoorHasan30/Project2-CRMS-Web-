@@ -16,11 +16,10 @@
         <div class="header">
             <div class="new-btn">
                 <% if(user.isAdmin){ %> 
-                    <p><a href="/faq/new">+ Add</a></p>
+                    <p>+ Add</p>
                 <% } %>
             </div>
         </div>
-        
 
         <div class="faq-container">
             <% allFaq.forEach( q => { %>
@@ -44,6 +43,58 @@
                 </div>
             <% }) %>
         </div>
+
+
+        <!-- Add: Modal Container -->
+        <div class="modal">
+            <div class="modal-content" id="add-faq">
+                <div class="modal-title">
+                    <h2><span class="back">←</span>Add FAQ</h2>
+                </div>
+                <div class="add-form">
+                    <form action="/faq" method="POST">
+                        <div class="form-group">
+                            <label for="question">Question:</label>
+                            <input type="text" name="question" id="question">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="answer">Answer:</label>
+                            <textarea name="answer" id="answer"></textarea>
+                        </div>
+
+                        <button type="submit" class="add-btn">Add</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        
+        </div>
     </div>
+
+
+    <script>
+        const newBtn = document.querySelector('.new-btn')
+        const addBtn = document.querySelector('.add-btn')
+        const back = document.querySelector('.back')
+
+        // const editBtn = document.querySelectorAll('.edit')
+
+        const modalE = document.querySelector('.modal')
+
+        // Functions
+        function showAddModal(){
+            modalE.style.display = "flex"
+        }
+        function closeAddModal(){
+            modalE.style.display = "none"
+        }
+
+        // Event Listeners
+        newBtn.addEventListener('click', showAddModal)
+        addBtn.addEventListener('click', closeAddModal)
+        back.addEventListener('click', closeAddModal)
+    </script>
 </body>
 </html>

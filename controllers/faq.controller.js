@@ -19,16 +19,16 @@ router.get('/',
 
 // Create
 // GET: 
-router.get('/new', isAdmin,
-    (req, res) => {
-        try{
-            res.render('faq/new.ejs')
-        }
-        catch(err){
-            console.log(err)
-        }
-    }
-)
+// router.get('/new', isAdmin,
+//     (req, res) => {
+//         try{
+//             res.render('faq/new.ejs')
+//         }
+//         catch(err){
+//             console.log(err)
+//         }
+//     }
+// )
 
 // POST:
 router.post('/', isAdmin,

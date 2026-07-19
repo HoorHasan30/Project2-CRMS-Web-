@@ -99,9 +99,13 @@ router.post('/login',
                 isAdmin: userIsInDb.isAdmin
             }
 
-            // redirect to home page 
-            res.redirect('/tickets')
-
+            if (user.isAdmin){
+                res.redirect('/analysis')
+            }
+            else{
+                res.redirect('/tickets')
+            }
+            
         }
         catch(err){
             console.log(err)

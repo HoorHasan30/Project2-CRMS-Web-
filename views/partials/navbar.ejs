@@ -1,46 +1,24 @@
 <div id="nav">
-        <!-- Admin -->
-        <div class="nav-up">
-            <div class="nav-logo">
-                <img src="\assets\Logo.png" alt="logo" id="logo">
-            </div>
-
-            
-            <% if(user && user?.isAdmin){ %> 
-                <a href="#">Analysis</a>
-                <a href="/tickets">All Tickets</a>
-                <a href="/categories">All Categories</a>
-                <a href="/technician">All Technicians</a>
-                <a href="/faq">All FAQ</a>
-            <% } else if (!user.isAdmin) { %>
-                <a href="/tickets">All Tickets</a>
-                <a href="/faq">All FAQ</a>
-            <% }%>
+    <div class="nav-up">
+        <div class="nav-logo">
+            <img src="\assets\Logo.png" alt="logo" id="logo">
         </div>
 
-        <!-- Normal User -->
-        <!-- <div class="nav-up">
-            <a href="/home">Home</a>
+        <% if(user && user?.isAdmin){ %>
+            <a href="/admin">Analysis</a>
             <a href="/tickets">All Tickets</a>
-            <a href="/faq">FAQs</a>
-            <a href="/about">About</a>
-        </div> -->
+            <a href="/categories">All Categories</a>
+            <a href="/technician">All Technicians</a>
+            <a href="/faq">All FAQ</a>
+        <% } else if (!user.isAdmin) { %>
+            <a href="/tickets/myTickets">All Tickets</a>
+            <a href="/faq">All FAQ</a>
+        <% }%>
+    </div>
 
-        <!-- <div class="nav-down">
-             <a href="/auth/sign-out">Logout</a>
-        </div>
-
-        <div class="nav-up">
-            <p>🏠︎</p>
-            <a href="/">Home</a>
-            
-        </div> -->
-
-        <div class="nav-down">
-            <!-- <a href="/auth/sign-up">Sign up</a>
-            <a href="/auth/login">Login</a> -->
-            <a href="/auth/sign-out">➜] Logout</a>
-        </div>
+    <div class="nav-down">
+        <a href="/auth/sign-out">➜] Logout</a>
+    </div>
 
 
 </div>
