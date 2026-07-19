@@ -1,6 +1,7 @@
 const router = require("express").Router()
 
 const isAdmin = require('../middleware/is-admin')
+const isSignedIn = require("../middleware/is-signed-in")
 const Category = require('../models/Category')
 
 // Categories
@@ -55,7 +56,7 @@ router.get('/:id', isAdmin,
 )
 
 // GET: Sub-Category
-router.get('/sub-categories/:id', isAdmin, 
+router.get('/sub-categories/:id', isSignedIn, 
     async (req, res) => {
         try{
             const allSubCategories = await Category.find({parentCategory: req.params.id, isActive: true})
