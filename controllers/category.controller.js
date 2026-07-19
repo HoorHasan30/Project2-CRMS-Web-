@@ -54,10 +54,11 @@ router.get('/:id', isAdmin,
     }
 )
 
+// GET: Sub-Category
 router.get('/sub-categories/:id', isAdmin, 
     async (req, res) => {
         try{
-            const allSubCategories = await Category.find({parentCategory: req.params.id})
+            const allSubCategories = await Category.find({parentCategory: req.params.id, isActive: true})
 
            res.json({subcategories:allSubCategories})
         }

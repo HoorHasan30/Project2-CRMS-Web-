@@ -41,7 +41,7 @@ router.get('/myTickets', isSignedIn, //User
 router.get('/new', isSignedIn,
     async (req, res) => {
         try{
-            const categories = await Category.find({isActive: isActive})
+            const categories = await Category.find({isActive: true})
             res.render('tickets/new.ejs', {categories})
         }
         catch(err){
@@ -55,8 +55,8 @@ router.post('/', isSignedIn,
     async (req, res) => {
         try{
             await Ticket.create({
-                owner: req.session.use._Id,
-                staus: "Pending",
+                owner: req.session.user._id,
+                status: "Pending",
                 category: req.body.category,
                 description: req.body.description,
                 building: req.body.building,
@@ -90,8 +90,8 @@ router.put('/:id', isSignedIn,
     async (req, res) => {
         try{
             await Ticket.findByIdAndUpdate(req.params.id, {
-                owner: req.session.use._Id,
-                staus: "Pending",
+                owner: req.session.user._id,
+                status: "Pending",
                 category: req.body.category,
                 description: req.body.description,
                 building: req.body.building,
@@ -124,8 +124,8 @@ router.put('/:id', isAdmin,
     async (req, res) => {
         try{
             await Ticket.findByIdAndUpdate(req.params.id, {
-                staus: "Assigned",
-                prioraty: req.body.prioraty,
+                status: "Assigned",
+                priority: req.body.prioraty,
                 technician: req.body.technician
             })
             res.redirect('/tickets')
