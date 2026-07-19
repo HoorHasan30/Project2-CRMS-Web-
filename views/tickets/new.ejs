@@ -19,11 +19,11 @@
 
                 <select name="category" id="category">
                     <option value="">-- Select Category --</option>
-                    <% categories.forEach( cat => ( %> 
+                    <% categories.forEach( cat => { %> 
                         <% if(!cat.isSubCategory && cat.isActive){ %> 
                             <option value="<%= cat._id %>"><%= cat.name %></option>
                         <% } %>
-                    <% )) %>
+                    <% }) %>
                 </select>
             </div>
 
