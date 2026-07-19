@@ -5,6 +5,7 @@ const isAdmin = require('../middleware/is-admin.js')
 const Ticket = require('../models/Ticket')
 
 const Category = require('../models/Category.js')
+const { isValidObjectId } = require('mongoose')
 
 // ALL
 // GET: All Tickets (Only Admin)
@@ -40,7 +41,7 @@ router.get('/myTickets', isSignedIn, //User
 router.get('/new', isSignedIn,
     async (req, res) => {
         try{
-            const categories = await Category.find()
+            const categories = await Category.find({isActive: isActive})
             res.render('tickets/new.ejs', {categories})
         }
         catch(err){

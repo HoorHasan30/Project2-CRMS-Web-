@@ -7,21 +7,13 @@
     <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
-
-    <%- include('./partials/navbar') %>
-
-    <div class="content">
+    
+    <div class="content home">
         <h1>Home</h1>
-
-        <% if (user) {%> <!--if Logged in   -->
-            <% if(user.isAdmin) { %> <!-- If Admin -->
-                <p>Welcome Admin</p>
-            <% } else {%> <!-- if user -->
-                <p>Welcome User</p>
-            <% } %>
-        <% } else { %> <!-- NOt Logged in -->
             <p>Welcome Guest</p>
-        <% } %>
+
+            <a href="auth/sign-up">Sign in</a>
+            <a href="auth/login">login</a>
     </div>
 </body>
 </html>

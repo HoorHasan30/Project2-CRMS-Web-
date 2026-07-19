@@ -91,6 +91,9 @@ h1 a {
     text-decoration: none;
     color: var(--text)
 }
+.home {
+    margin: 0;
+}
 
 /* Modal */
 .modal {

@@ -100,7 +100,7 @@ router.post('/login',
             }
 
             // redirect to home page 
-            res.redirect('/home')
+            res.redirect('/tickets')
 
         }
         catch(err){

@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Ticket</title>
     <link rel="stylesheet" href="/css/style.css">
+    <style>
+
+    </style>
+
 </head>
 <body>
 
@@ -27,6 +31,12 @@
                 </select>
             </div>
 
+            <div id="sub-category-container" class="form-group">
+                <label for="">Subcategory</label>
+                <select disabled name="subcategory" id="sub-category"
+                ></select>
+            </div>
+
             <div class="form-group">
                 <label for="description">Description:</label>
                 <textarea name="description" id="description"></textarea>
@@ -43,6 +53,38 @@
             </div>
         </form>
     </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    
+    <script defer>
+        const selectElement = document.querySelector('#category')
+        console.log(selectElement)
+
+        const subCatContainerEl = document.querySelector('#sub-category')
+
+        async function getSubCategories(event){
+            subCatContainerEl.innerHTML = ''
+
+            
+        const allSubCategories = await axios.get(`/categories/sub-categories/${event.target.value}`)
+        console.log(allSubCategories.data.subcategories)
+
+        allSubCategories.data.subcategories.forEach(element => {
+            const newOption = document.createElement('option')
+            newOption.textContent = element.name
+            newOption.value= element._id
+            subCatContainerEl.appendChild(newOption)
+        });
+        subCatContainerEl.disabled = false
+        }
+
+        selectElement.addEventListener('change',getSubCategories)
+
+    </script>
+
     
 </body>
 </html>

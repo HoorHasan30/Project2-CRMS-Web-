@@ -54,6 +54,19 @@ router.get('/:id', isAdmin,
     }
 )
 
+router.get('/sub-categories/:id', isAdmin, 
+    async (req, res) => {
+        try{
+            const allSubCategories = await Category.find({parentCategory: req.params.id})
+
+           res.json({subcategories:allSubCategories})
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+)
+
 // CREATE: Sub-Category
 router.post('/:id', isAdmin,
     async (req, res) => {
