@@ -99,11 +99,11 @@ router.post('/login',
                 isAdmin: userIsInDb.isAdmin
             }
 
-            if (user.isAdmin){
-                res.redirect('/analysis')
+            if (req.session.user.isAdmin){
+                res.redirect('/tickets')
             }
             else{
-                res.redirect('/tickets')
+                res.redirect('/tickets/myTickets')
             }
             
         }
