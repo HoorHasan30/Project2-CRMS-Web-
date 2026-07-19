@@ -18,7 +18,7 @@ html {
 /* Nav Bar */
 #nav {
     background-color: var(--primary);
-    width: 12%;
+    width: 15%;
     height: 100%;
 
     top: 0;
@@ -70,7 +70,7 @@ html {
 /* Content */
 .content {
     margin: 1%;
-    margin-left: 13%;
+    margin-left: 15%;
 
     display: flex;
     justify-content: center;
@@ -285,7 +285,7 @@ button:hover {
 }
 .cat-card, .sub-cat-card{
 
-    width: 18rem;
+    width: 17rem;
 
     border: 0.1rem solid var(--primary);
     border-radius: 1rem;
@@ -436,7 +436,7 @@ button:hover {
     gap: 2rem;
 }
 .tech-card{
-    width: 18rem;
+    width: 15rem;
 
     border: 0.1rem solid var(--primary);
     box-shadow: 0 0.2rem #8aa7bca1;
@@ -511,16 +511,34 @@ button:hover {
     flex-direction: column;
     align-items: center;
 
-    height: 15rem;
+    height: 18rem;
 
     padding: 0.8%;
 }
-.edit form {
-    margin: 0;
+#edit-tech{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 0.01rem;
+
     width: 100%;
-    padding: 0;
-}
-.edit label{
+
+    margin-bottom: 1rem;
+
+    input[type="checkbox"]
+    {
+        font-size: 1rem;
+        accent-color: var(--primary);
+
+        font-size: 1rem;
+    }
+ }
+ #edit-tech label{
     font-size: 0.9rem;
-    margin: 0;
-}
+ }
+ #edit-tech input{
+    width: 80%;
+ }
+
