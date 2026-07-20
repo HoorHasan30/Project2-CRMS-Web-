@@ -19,11 +19,39 @@
             </div>
         </div>
 
-        <% allTickets.forEach( ticket =>{  %>
-            <div class="ticket-card">
-                <p><%= ticket._id %></p>
-            </div>
-        <% }) %>
+        <div class="ticket-container">
+            <% allTickets.forEach( ticket =>{  %>
+                <div class="ticket-card">
+
+                    <div class="tic-card-header">
+                        <div class="tic-date">
+                            <%= new Date(ticket.createdAt).toISOString().split('T')[0] %>
+                        </div>
+                        <div class="tic-staus">
+                            <% if(ticket.status == "Pending"){ %> 
+                                <div class="status-div" id="pending"><%= ticket.status %></div>
+                            <% } else if (ticket.status == "Assigned") { %> 
+                                <div class="status-div" id="assigned"><%= ticket.status %></div>
+                            <% } else { %>
+                                <div class="status-div" id="completed"><%= ticket.status %></div>
+                            <% } %>
+                        </div>
+                    </div>
+
+                    <div class="tic-body">
+                        <div class="tic-prioraty">
+                            <p>Prioraty</p>
+                        </div>
+
+                        <div class="tik-info">
+                            <p>Building: t - Room: t </p>
+                            <p>category - subCategory</p>
+                        </div>
+                    </div>
+                </div>
+            <% }) %>
+        </div>
+       
     </div>
 
     

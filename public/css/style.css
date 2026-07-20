@@ -616,5 +616,60 @@ button:hover {
 
     gap: 2rem;
 }
+.ticket-card{
+    width: 16rem;
 
+    border: 0.1rem solid var(--primary);
+    box-shadow: 0 0.2rem #8aa7bca1;
+    border-radius: 1rem;
 
+    padding: 1.2%;
+}
+.tic-date{
+    color:  rgb(184, 184, 178);
+    font-size: 0.8rem;
+}
+.tic-card-header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+}
+.status-div{
+    width: 6rem;
+    border-radius: 1rem;
+}
+#pending{
+    background-color: rgb(184, 184, 178);
+}
+#assigned{
+    background-color: rgb(247, 225, 146);
+}
+#completed{
+    background-color: rgb(166, 208, 166);
+}
+.tic-body{
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-direction: column;
+
+    gap: 0;
+
+    width: 100%;
+
+    p {
+        margin: 0;
+        text-align: left;
+    }
+}
+
+.tic-prioraty, .tic-info{
+    width: 100%;
+
+    display: flex;
+    /* justify-content: flex-start; */
+    flex-direction: flex-start;
+    align-items: center;
+    text-align: left;
+}
