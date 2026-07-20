@@ -11,7 +11,86 @@
     <%- include('../partials/navbar') %>
     <div class="content">
         <h1>Dashboard</h1>
+
+        <div class="header-analysis">
+            <div class="analysis-card">
+                <h1><%= totalTickets %></h1>
+                <p>Tickets</p>
+            </div>
+            <div class="analysis-card">
+                <h1><%= totalTechs %></h1>
+                <p>Technicains</p>
+            </div>
+            <div class="analysis-card">
+                <h1><%= totalCategories %></h1>
+                <p>Categories</p>
+            </div>
+        </div>
+
+        <div class="charts">
+
+            <div class="status-barChart">
+                <canvas id="status-chart" style="width:98%; height:20rem;">
+
+                </canvas>
+            </div>
+
+            <div class="prioraty-barChart">
+                <canvas id="prioraty-chart" style="width:98%; height:20rem;">
+
+                </canvas>
+            </div>
+        </div>
     </div>
-    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+    <script defer>  
+
+        // status
+        const convertedStatusLabel = <%- JSON.stringify(statusLabels) %>;
+        const convertedStatusCounts = <%- JSON.stringify(statusCounts) %>;
+        console.log(convertedStatusLabel)
+
+        new Chart(document.getElementById('status-chart'), {
+            type: 'bar',
+            data: {
+                labels: convertedStatusLabel,
+                datasets: [{
+                    label: 'Tickets by Status',
+                    data: convertedStatusCounts,
+                    backgroundColor: ['#0F1929', '#53697F', '#8AA7BC'],
+                    maxBarThickness: 45
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+
+        // Prioraty
+        const convertedPrioratyLabels = <%- JSON.stringify(prioratyLabels) %>;
+        const convertedPrioratyCounts = <%- JSON.stringify(prioratyCounts) %>;
+
+        new Chart(document.getElementById('prioraty-chart'), {
+            type: 'doughnut',
+            data: {
+            labels: convertedPrioratyLabels,
+            datasets: [{
+                label: 'Tickets by Prioraty',
+                data: convertedPrioratyCounts,
+                backgroundColor: ['#0F1929', '#53697F', '#8AA7BC'],
+                hoverOffset: 4
+            }]
+        }
+        })
+
+    </script>
 </body>
 </html>

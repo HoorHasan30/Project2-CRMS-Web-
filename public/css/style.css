@@ -723,3 +723,53 @@ button:hover {
     width: 10rem;
     padding: 0.5%;
 }
+
+/* Analysis */
+.header-analysis{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 3rem;
+}
+.analysis-card{
+    width: 20rem;
+
+    border: 0.1rem solid var(--primary);
+    box-shadow: 0 0.2rem #8aa7bca1;
+    border-radius: 1rem;
+
+    padding: 1.2%;
+
+    h1{
+        font-size: 5rem;
+        color: var(--text);
+        margin: 0;
+    }
+    p{
+        font-size: 0.9rem;
+        color: var(--primary);
+        margin: 0;
+    }
+}
+.charts{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+.status-barChart, .prioraty-barChart{
+    width: 33.5rem;
+
+    border: 0.1rem solid var(--primary);
+    box-shadow: 0 0.2rem #8aa7bca1;
+    border-radius: 1rem;
+
+    padding: 1.2%;
+}
