@@ -9,6 +9,97 @@
 <body>
 
     <%- include('../partials/navbar') %>
-    <h1>Ticket Details</h1>
+    <div class="content">
+        <h1><a href="/tickets">←</a>Ticket Details</h1>
+
+        
+        <% if(ticket.status == "Pending" && ticket.owner._id == user._id) { %> 
+            <div class="ticket-btns">
+                <div class="delete-tic">
+                    <form action="/tickets/<%= ticket._id %>/delete?_method=DELETE" method="POST">
+                        <button type="submit" class="delete">🗑</button>
+                    </form>    
+                </div>
+            <div class="edit-tic">
+                <form action="/tickets/<%= ticket._id %>/edit" method="GET">
+                    <button type="submit" class="edit">✎</button>
+                </form>      
+            </div>
+        </div> 
+        <% } %>
+        
+        <form id="new-ticket">
+            <div class="form-group">
+                <label for="owner">By: </label>
+                <input disabled type="text" name="owner" id="owner" value="<%= ticket.owner.username %>">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status: </label>
+                <input disabled type="text" name="status" id="status" value="<%= ticket.status %>">
+            </div>
+            
+            <% if(ticket.status == "Assigned"){ %> 
+                <div class="form-group">
+                    <label for="prioraty">Prioraty:</label>
+                    
+                    <select disabled name="prioraty" id="prioraty">
+                        <option value=""><%= ticket.prioraty %></option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="technician">Technician:</label>
+
+                    <select disabled name="technician" id="technician">
+                        <option value=""><%= ticket.technician.firstName %> <%= ticket.technician.lastName %></option>
+                    </select>
+                </div>
+            <% } %>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+
+                <select disabled name="category" id="category">
+                    <option><%= ticket.category.name %></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subCategory">Sub-Category:</label>
+
+                <select disabled name="subCategory" id="subCategory">
+                    <option><%= ticket.subCategory.name %></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea disabled name="description" id="description"><%= ticket.description %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="building">Building:</label>
+                <input disabled type="text" name="building" id="building" value="<%= ticket.building %>">
+            </div>
+
+            <div class="form-group">
+                <label for="room">Room:</label>
+                <input disabled type="text" name="room" id="room" value="<%= ticket.room %>">
+            </div>
+        </form>
+
+        <% if(user.isAdmin && !ticket.prioraty && !ticket.technician) { %>
+            <form action="/tickets/<%= ticket._id %>/assign" method="GET" class="tic-form">
+                <button type="submit">Assign</button>
+            </form>    
+        <% } %>
+
+        <% if(user.isAdmin && ticket.prioraty && ticket.technician && ticket.status == "Assigned") { %>
+            <form action="/tickets/<%= ticket._id %>/completed?_method=PUT" method="POST" class="tic-form">
+                <button type="submit">Completed</button>
+            </form>    
+        <% } %>
+    </div>
 </body>
 </html>

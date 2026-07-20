@@ -9,6 +9,81 @@
 <body>
 
     <%- include('../partials/navbar') %>
-    <h1>Assign Ticket</h1>
+
+    <div class="content">
+        <h1><a href="/tickets">←</a>Assign Ticket</h1>
+
+        <form action="/tickets/<%= ticket._id %>/assign?_method=PUT" method="POST" id="new-ticket">
+
+            <div class="form-group">
+                <label for="owner">By: </label>
+                <input disabled type="text" name="owner" id="owner" value="<%= ticket.owner.username %>">
+            </div>
+
+            <div class="form-group">
+                <label for="status">Status: </label>
+                <input disabled type="text" name="status" id="status" value="<%= ticket.status %>">
+            </div>
+            
+            <div class="form-group">
+                <label for="category">Prioraty:</label>
+
+                <select name="prioraty" id="prioraty">
+                    <option value="">-- Select Prioraty --</option>
+                    <option value="High">High</option>
+                    <option value="Moderate">Moderate</option>
+                    <option value="Low">Low</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Technician:</label>
+
+                <select name="technician" id="technician">
+                    <option value="">-- Select Technician --</option>
+                    <% technicains.forEach( t => { %> 
+                        <option value="<%= t._id %>"><%= t.firstName %> <%= t.lastName %></option>
+                    <% }) %>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="category">Category:</label>
+
+                <select disabled name="category" id="category">
+                    <option><%= ticket.category.name %></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="subCategory">Sub-Category:</label>
+
+                <select disabled name="subCategory" id="subCategory">
+                    <option><%= ticket.subCategory.name %></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="description">Description:</label>
+                <textarea disabled name="description" id="description"><%= ticket.description %></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="building">Building:</label>
+                <input disabled ="text" name="building" id="building" value="<%= ticket.building %>">
+            </div>
+
+            <div class="form-group">
+                <label for="room">Room:</label>
+                <input disabled name="text" name="room" id="room" value="<%= ticket.room %>">
+            </div>
+
+            <div class="btns-group">
+                <button type="submit" class="add-btn">Assign</button>
+            </div>
+        </form>
+
+    </div>
+    
 </body>
 </html>

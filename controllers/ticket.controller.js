@@ -5,6 +5,8 @@ const isAdmin = require('../middleware/is-admin.js')
 const Ticket = require('../models/Ticket')
 
 const Category = require('../models/Category.js')
+const Technicain = require('../models/Technician.js')
+
 const { isValidObjectId } = require('mongoose')
 
 // ALL
@@ -12,7 +14,7 @@ const { isValidObjectId } = require('mongoose')
 router.get('/', isAdmin, 
     async (req, res) => {
         try{
-            const allTickets = await Ticket.find()
+            const allTickets = await Ticket.find().populate('category').populate('subCategory').populate('owner')
             res.render('tickets/index.ejs', {allTickets})
         }
         catch(err){
@@ -26,7 +28,7 @@ router.get('/myTickets', isSignedIn, //User
         try{
             const allTickets = await Ticket.find({
                 owner: req.session.user._id
-            })
+            }).populate('category').populate('subCategory').populate('owner')
             res.render('tickets/index.ejs', {allTickets})
         }
         catch(err){
@@ -58,6 +60,7 @@ router.post('/', isSignedIn,
                 owner: req.session.user._id,
                 status: "Pending",
                 category: req.body.category,
+                subCategory: req.body.subCategory,
                 description: req.body.description,
                 building: req.body.building,
                 room: req.body.room
@@ -71,12 +74,26 @@ router.post('/', isSignedIn,
 )
 
 
+// READ ONE
+// GET:
+router.get('/:id', isSignedIn,
+    async (req, res) => {
+        try{
+            const ticket = await Ticket.findById(req.params.id).populate('category').populate('subCategory').populate('owner').populate('technician')
+            res.render('tickets/show.ejs', {ticket})
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+)
+
 // UPDATE Before Assign
 // GET:
 router.get('/:id/edit', isSignedIn, 
     async (req, res) => {
         try{
-            const ticket = await Ticket.findById(req.params.id)
+            const ticket = await Ticket.findById(req.params.id).populate('category').populate('subCategory').populate('owner')
             res.render('tickets/edit.ejs', {ticket})
         }
         catch(err){
@@ -93,6 +110,7 @@ router.put('/:id', isSignedIn,
                 owner: req.session.user._id,
                 status: "Pending",
                 category: req.body.category,
+                subCategory: req.body.subCategory,
                 description: req.body.description,
                 building: req.body.building,
                 room: req.body.room
@@ -110,8 +128,9 @@ router.put('/:id', isSignedIn,
 router.get('/:id/assign', isAdmin, 
     async (req, res) => {
         try{
-            const ticket = await Ticket.findById(req.params.id)
-            res.render('tickets/assign.ejs', {ticket})
+            const technicains = await Technicain.find({isActive: true})
+            const ticket = await Ticket.findById(req.params.id).populate('category').populate('subCategory').populate('owner')
+            res.render('tickets/assign.ejs', {ticket, technicains})
         }
         catch(err){
             console.log(err)
@@ -120,12 +139,12 @@ router.get('/:id/assign', isAdmin,
 )
 
 // PUT:
-router.put('/:id', isAdmin,
+router.put('/:id/assign', isAdmin,
     async (req, res) => {
         try{
             await Ticket.findByIdAndUpdate(req.params.id, {
                 status: "Assigned",
-                priority: req.body.prioraty,
+                prioraty: req.body.prioraty,
                 technician: req.body.technician
             })
             res.redirect('/tickets')
@@ -136,14 +155,13 @@ router.put('/:id', isAdmin,
     }
 )
 
-
-// READ ONE
-// GET:
-router.get('/:id', isSignedIn,
+router.put('/:id/completed', isAdmin,
     async (req, res) => {
         try{
-            const ticket = await Ticket.findById(req.params.id)
-            res.render('tickets/show.ejs', {ticket})
+            await Ticket.findByIdAndUpdate(req.params.id, {
+                status: "Completed"
+            })
+            res.redirect('/tickets')
         }
         catch(err){
             console.log(err)
@@ -151,14 +169,13 @@ router.get('/:id', isSignedIn,
     }
 )
 
-
 // DELETE
 // DELETE:
-router.get('/:id/delete', isSignedIn,
+router.delete('/:id/delete', isSignedIn,
     async (req, res) => {
         try{
             await Ticket.findByIdAndDelete(req.params.id)
-            res.redirect('/tickets')
+            res.redirect('/tickets/myTickets')
         }
         catch(err){
             console.log(err)

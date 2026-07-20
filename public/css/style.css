@@ -599,8 +599,8 @@ button:hover {
 
  /* Tickets */
  #new-ticket{
-    margin-top: 3rem;
-    width: 50%;
+    margin-top: 0.7rem;
+    width: 65%;
  }
 .ticket-container{
     width: 100%;
@@ -668,8 +668,58 @@ button:hover {
     width: 100%;
 
     display: flex;
-    /* justify-content: flex-start; */
-    flex-direction: flex-start;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     text-align: left;
+    flex-direction: column;
+}
+.tic-footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    /* gap: 7rem; */
+}
+.footer-text {
+    flex: 1;
+    text-align: left;
+}
+.footer-edit {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    width: 9% ;
+
+    a{
+        text-decoration: none;
+        color: var(--text);
+        font-size: 1rem;
+
+        /* background-color: var(--primary);
+        border-radius: 1rem; */
+
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+
+    }
+}
+.ticket-btns{
+    width: 65%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    gap: 0.5rem;
+
+    margin-right: 1rem;
+}
+.tic-form button{
+    width: 10rem;
+    padding: 0.5%;
 }

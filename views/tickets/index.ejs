@@ -40,21 +40,34 @@
 
                     <div class="tic-body">
                         <div class="tic-prioraty">
-                            <p>Prioraty</p>
+                            <p>Prioraty: 
+                                <% if(ticket.prioraty){ %> 
+                                    <%= ticket.prioraty %> 
+                                <% } else { %> 
+                                    -
+                                <% } %>
+                            </p>
                         </div>
 
-                        <div class="tik-info">
-                            <p>Building: t - Room: t </p>
-                            <p>category - subCategory</p>
+                        <div class="tic-info">
+                            <div class="tic-room">
+                                <p>Building: <%= ticket.building %> - Room: <%= ticket.room %> </p>
+                            </div>
+                            
+                            <div class="tic-footer">
+                                <div class="footer-text">
+                                    <p><%= ticket.category.name %> - <%= ticket.subCategory.name %></p>
+                                </div>
+                                <div class="footer-edit">
+                                    <a href="/tickets/<%= ticket._id %>">></a>
+                                </div>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
             <% }) %>
         </div>
-       
-    </div>
-
-    
-    
+    </div>   
 </body>
 </html>
