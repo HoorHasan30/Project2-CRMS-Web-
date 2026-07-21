@@ -140,7 +140,8 @@ CRMS
 
 
 ## Future Enhancements
-
-
+- UI Enhancement
+- Technicain User Pages
+- Search & Filter
 
 ## Credits
