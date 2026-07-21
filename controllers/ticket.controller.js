@@ -155,6 +155,20 @@ router.put('/:id/assign', isAdmin,
     }
 )
 
+router.put('/:id/reject', isAdmin,
+    async (req, res) => {
+        try{
+            await Ticket.findByIdAndUpdate(req.params.id, {
+                status: "Rejected"
+            })
+            res.redirect('/tickets')
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+)
+
 router.put('/:id/completed', isAdmin,
     async (req, res) => {
         try{

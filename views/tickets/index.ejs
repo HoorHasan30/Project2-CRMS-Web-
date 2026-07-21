@@ -28,7 +28,9 @@
                             <%= new Date(ticket.createdAt).toISOString().split('T')[0] %>
                         </div>
                         <div class="tic-staus">
-                            <% if(ticket.status == "Pending"){ %> 
+                            <% if(ticket.status == "Rejected"){ %> 
+                                <div class="status-div" id="reject-s"><%= ticket.status %></div>
+                            <% } else if (ticket.status == "Pending"){ %> 
                                 <div class="status-div" id="pending"><%= ticket.status %></div>
                             <% } else if (ticket.status == "Assigned") { %> 
                                 <div class="status-div" id="assigned"><%= ticket.status %></div>

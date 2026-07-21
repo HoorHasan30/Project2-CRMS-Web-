@@ -10,7 +10,10 @@
 
     <%- include('../partials/navbar') %>
     <div class="content">
-        <h1><a href="/tickets">←</a>Ticket Details</h1>
+        <h1>
+            <% if(user.isAdmin) { %> <a href="/tickets">←</a> <% } else { %> <a href="/tickets/myTickets">←</a> <% } %>
+            Ticket Details
+        </h1>
 
         
         <% if(ticket.status == "Pending" && ticket.owner._id == user._id) { %> 
@@ -89,10 +92,16 @@
             </div>
         </form>
 
-        <% if(user.isAdmin && !ticket.prioraty && !ticket.technician) { %>
-            <form action="/tickets/<%= ticket._id %>/assign" method="GET" class="tic-form">
-                <button type="submit">Assign</button>
-            </form>    
+        <% if(user.isAdmin && !ticket.prioraty && !ticket.technician && !ticket.status == "Rejected") { %>
+            <div class="tik-btns">
+                <form action="/tickets/<%= ticket._id %>/reject?_method=PUT" method="POST" class="tic-form">
+                    <button type="submit" class="reject">Reject</button>
+                </form>
+
+                <form action="/tickets/<%= ticket._id %>/assign" method="GET" class="tic-form">
+                    <button type="submit" id="assign">Assign</button>
+                </form>    
+            </div>
         <% } %>
 
         <% if(user.isAdmin && ticket.prioraty && ticket.technician && ticket.status == "Assigned") { %>

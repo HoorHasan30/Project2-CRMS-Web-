@@ -109,6 +109,7 @@ CRMS
 | PUT | /tickets/:id | Update pending ticket|
 | GET | /tickets/:id/assign | Show assign ticket page (Admin only)|
 | PUT | /tickets/:id/assign | Assign a technician and priority to a ticket (Admin only)|
+| PUT | /tickets/:id/reject | Mark ticket at rejected |
 | PUT | /tickets/:id/completed | Mark a ticket as completed (Admin only)|
 | DELETE | /tickets/:id/delete | Delete a ticket |
 
