@@ -111,6 +111,7 @@ CRMS
 | PUT | /tickets/:id/assign | Assign a technician and priority to a ticket (Admin only)|
 | PUT | /tickets/:id/reject | Mark ticket at rejected |
 | PUT | /tickets/:id/completed | Mark a ticket as completed (Admin only)|
+| PUT | /tickets/:id/feedback | Add a feedback to the completed ticket |
 | DELETE | /tickets/:id/delete | Delete a ticket |
 
 
