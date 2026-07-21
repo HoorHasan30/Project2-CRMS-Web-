@@ -20,11 +20,12 @@ router.get('/', isAdmin,
 
 
         // Charts Data
-        const statusLabels = ['Pending', 'Assigned', 'Completed']
+        const statusLabels = ['Pending', 'Assigned', 'Completed', 'Rejected']
         const statusCounts = [
             tickets.filter(t => t.status === 'Pending').length,
             tickets.filter(t => t.status === 'Assigned').length,
-            tickets.filter(t => t.status === 'Completed').length
+            tickets.filter(t => t.status === 'Completed').length,
+            tickets.filter(t => t.status === 'Rejected').length,
         ]
 
         const categoriesOnly = await Category.find({isSubCategory: false})
