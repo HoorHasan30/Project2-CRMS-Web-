@@ -27,17 +27,17 @@ router.get('/', isAdmin,
             tickets.filter(t => t.status === 'Completed').length
         ]
 
-
-        const prioratyLabels = ['High', 'Moderate', 'Low']
-        const prioratyCounts = [
-            tickets.filter(t => t.prioraty === 'High').length,
-            tickets.filter(t => t.prioraty === 'Moderate').length,
-            tickets.filter(t => t.prioraty === 'Low').length
-        ]
+        const categoriesOnly = await Category.find({isSubCategory: false})
+        const categoryLabels = categoriesOnly.map(c => c.name)
+        const categoryCounts = categoriesOnly.map(cat =>
+            tickets.filter(ticket =>
+                ticket.category?.toString() === cat._id.toString()
+            ).length
+        )
 
         res.render('analysis/analysis.ejs', {totalTickets, totalCategories, totalTechs, 
                                             statusLabels, statusCounts,
-                                            prioratyLabels, prioratyCounts
+                                            categoryLabels, categoryCounts
                                             })
     }
 )

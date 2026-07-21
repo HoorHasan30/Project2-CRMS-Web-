@@ -75,16 +75,16 @@
         });
 
         // Prioraty
-        const convertedPrioratyLabels = <%- JSON.stringify(prioratyLabels) %>;
-        const convertedPrioratyCounts = <%- JSON.stringify(prioratyCounts) %>;
+        const convertedCategoryLabels = <%- JSON.stringify(categoryLabels) %>;
+        const convertedCategoryCounts = <%- JSON.stringify(categoryCounts) %>;
 
         new Chart(document.getElementById('prioraty-chart'), {
             type: 'doughnut',
             data: {
-            labels: convertedPrioratyLabels,
+            labels: convertedCategoryLabels,
             datasets: [{
                 label: 'Tickets by Prioraty',
-                data: convertedPrioratyCounts,
+                data: convertedCategoryCounts,
                 backgroundColor: ['#0F1929', '#53697F', '#8AA7BC'],
                 hoverOffset: 4
             }]
