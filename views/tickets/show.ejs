@@ -109,6 +109,73 @@
                 <button type="submit">Completed</button>
             </form>    
         <% } %>
+
+        <% if( ticket.status == "Completed" && ticket.owner._id == user._id && !ticket.feedback) { %>
+            <button type="submit" class="feedback">Give Feedback</button>   
+        <% } else if ( user.isAdmin && ticket.feedback ) {%>
+            <button type="submit" class="feedback">View Feedback</button>
+        <% } %>
     </div>
+
+        <% if(ticket.owner._id == user._id && !ticket.feedback) { %>
+            <!-- Add FeedBack: Modal Container -->
+            <div class="modal">
+                <div class="modal-content" id="cat-index">
+                    <div class="modal-title">
+                        <h2><span class="back">←</span>Ticket FeedBack</h2>
+                    </div>
+                    <div class="add-form">
+                        <form action="/tickets/<%= ticket._id %>/feedback?_method=PUT" method="POST">
+                            <div class="form-group">
+                                <label for="feedbackInput">Write a FeedBack</label>
+                                <textarea type="text" id="feedbackInput" name="feedback"></textarea>
+                            </div>
+                            <div class="btns-group">
+                                <button type="submit" class="add-btn">Send</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } else if (ticket.feedback && (ticket.owner._id == user._id || user.isAdmin )) { %> 
+            <!-- Add FeedBack: Modal Container -->
+            <div class="modal">
+                <div class="modal-content" id="cat-index">
+                    <div class="modal-title">
+                        <h2><span class="back">←</span>Ticket FeedBack</h2>
+                    </div>
+                    <div class="add-form">
+                        <form>
+                            <div class="form-group">
+                                <label for="feedbackInput">Write a FeedBack</label>
+                                <textarea disabled type="text" id="feedbackInput" name="feedback"><%= ticket.feedback %></textarea>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+
+        <script>
+        const feedbackBtn = document.querySelector('.feedback')
+        const addBtn = document.querySelector('.add-btn')
+        const back = document.querySelectorAll('.back')
+
+        const modalE = document.querySelector('.modal')
+
+        // Functions
+        function showAddModal(){
+            if (modalE) modalE.style.display = 'flex'
+        }
+        function closeAddModal(){
+            if (modalE) modalE.style.display = 'none'
+        }
+
+        // Event Listeners
+        if (feedbackBtn) feedbackBtn.addEventListener('click', showAddModal)
+        if (addBtn) addBtn.addEventListener('click', closeAddModal)
+        back.forEach(b => b.addEventListener('click', closeAddModal))
+    </script>
+    
 </body>
 </html>

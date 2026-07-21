@@ -744,7 +744,14 @@ button:hover {
         padding: 1.5%;
     }
 }
-
+.feedback{
+    width: 10% ;
+    padding: 0.5%;
+    font-size: 1rem;
+}
+.feedbackInput{
+    width: 100%;
+}
 /* Analysis */
 .header-analysis{
     width: 100%;

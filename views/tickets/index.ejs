@@ -58,7 +58,7 @@
                             
                             <div class="tic-footer">
                                 <div class="footer-text">
-                                    <p><%= ticket.category.name %> - <%= ticket.subCategory.name %></p>
+                                    <p><%= ticket.category.name %> <% if (ticket.subCategory) { %> - <%= ticket.subCategory.name %> <% } %></p>
                                 </div>
                                 <div class="footer-edit">
                                     <a href="/tickets/<%= ticket._id %>">></a>

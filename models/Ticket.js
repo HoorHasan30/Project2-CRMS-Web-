@@ -34,6 +34,9 @@ const ticketSchema = new mongoose.Schema({
     technician: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "Technician"
+    },
+    feedback: {
+        type: String
     }
 }, {timestamps: true})
 

@@ -183,6 +183,20 @@ router.put('/:id/completed', isAdmin,
     }
 )
 
+router.put('/:id/feedback', isSignedIn, 
+    async (req, res) => {
+        try{
+            await Ticket.findByIdAndUpdate(req.params.id, {
+                feedback: req.body.feedback
+            })
+
+            res.redirect('/tickets/myTickets')
+        }
+        catch(err){
+            console.log(err)
+        }
+    }
+)
 // DELETE
 // DELETE:
 router.delete('/:id/delete', isSignedIn,
