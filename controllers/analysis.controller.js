@@ -1,10 +1,11 @@
 const router = require('express').Router()
 
+const isAdmin = require('../middleware/is-admin')
 const Category = require('../models/Category')
 const Technicain = require('../models/Technician')
 const Ticket = require('../models/Ticket')
 
-router.get('/', 
+router.get('/', isAdmin,
     async (req, res) => {
 
         // total numbers
