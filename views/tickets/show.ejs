@@ -92,7 +92,7 @@
             </div>
         </form>
 
-        <% if(user.isAdmin && !ticket.prioraty && !ticket.technician && !ticket.status == "Rejected") { %>
+        <% if(user.isAdmin && !ticket.prioraty && !ticket.technician && ticket.status != "Rejected") { %>
             <div class="tik-btns">
                 <form action="/tickets/<%= ticket._id %>/reject?_method=PUT" method="POST" class="tic-form">
                     <button type="submit" class="reject">Reject</button>
