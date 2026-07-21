@@ -11,7 +11,8 @@
     <%- include('../partials/navbar') %>
 
     <div class="content">
-        <h1><a href="/tickets">←</a>Edit Ticket</h1>
+        <h1><% if(user.isAdmin) { %> <a href="/tickets">←</a> <% } else { %> <a href="/tickets/myTickets">←</a> <% } %>
+            Edit Ticket</h1>
 
         
         <form action="/tickets/<%= ticket._id %>?_method=PUT" method="POST" id="new-ticket">
