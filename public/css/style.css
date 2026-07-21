@@ -142,8 +142,6 @@ h1 a {
     }
 }
 
-
-
 /* Modal */
 .modal {
     background-color: rgba(101, 101, 101, 0.458);
@@ -160,7 +158,6 @@ h1 a {
 
     text-align: center;
 }
-
 .modal-content {
     display: flex;
     justify-content: space-evenly;
@@ -209,7 +206,6 @@ form {
 
     width: 85%;
 }
-
 .form-group {
     margin: 1.2rem;
 
@@ -221,7 +217,6 @@ form {
 
     width: 100%;
 }
-
 .form-group label {
     font-size: 1rem;
     width: 25%;
@@ -229,7 +224,6 @@ form {
 .sub label {
     width: 30%;
 }
-
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -266,10 +260,12 @@ button:hover {
 .delete {
     background-color: rgb(194, 40, 40);
 }
+
 /* Auth */
+
 .auth-form{
-    margin-top: 7rem;
-    width: 50%;
+    margin-top: 3rem;
+    width: 35%;
 }
 .auth-btn{
     width: 20%;
@@ -280,7 +276,26 @@ button:hover {
 }
 .auth{
     margin: 0;
-    margin-top: 1%;
+    margin-top: 2%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.auth-group{
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction:column;
+}
+.auth-group label{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    text-align: left;
+}
+.auth-group input{
+    width: 100%;
 }
 
 /* Categories */
