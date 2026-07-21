@@ -25,8 +25,7 @@ const ticketSchema = new mongoose.Schema({
         required: true
     },
     building: {
-        type: String,
-        required: true
+        type: String
     },
     room: {
         type: String

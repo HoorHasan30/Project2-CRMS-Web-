@@ -53,7 +53,7 @@
 
                         <div class="tic-info">
                             <div class="tic-room">
-                                <p>Building: <%= ticket.building %> - Room: <%= ticket.room %> </p>
+                                <p><% if (ticket.building) { %>Building:  <%= ticket.building %> <% } %> - <% if (ticket.room) { %> Room: <%= ticket.room %> <% } %> </p>
                             </div>
                             
                             <div class="tic-footer">
