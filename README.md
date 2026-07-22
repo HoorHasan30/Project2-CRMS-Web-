@@ -1,4 +1,4 @@
-<img width="1917" height="868" alt="image" src="https://github.com/user-attachments/assets/5d097bdc-e76c-4ce7-aacc-4ee985bb1689" /># Project Name
+# Project Name
 CRMS
 
 ## Overview
