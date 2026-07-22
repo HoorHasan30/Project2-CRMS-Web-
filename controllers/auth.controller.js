@@ -1,6 +1,6 @@
 const router = require('express').Router()
-const isAdmin = require('../middleware/is-admin.js');
-const User = require("../models/user.js");
+const isAdmin = require('../middleware/is-admin.js')
+const User = require("../models/User.js");
 const bcrypt = require("bcrypt");
 
 // Sign Up

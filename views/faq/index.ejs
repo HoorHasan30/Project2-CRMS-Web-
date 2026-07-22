@@ -44,9 +44,8 @@
             <% }) %>
         </div>
 
-
         <!-- Add: Modal Container -->
-        <div class="modal">
+        <div class="modal" id="addModal">
             <div class="modal-content" id="add-faq">
                 <div class="modal-title">
                     <h2><span class="back">←</span>Add FAQ</h2>
@@ -69,7 +68,30 @@
             </div>
         </div>
 
-        
+        <!-- Edit: Modal Container -->
+        <div class="modal" id="editModal">
+            <div class="modal-content" id="edit-faq">
+                <div class="modal-title">
+                    <h2><span class="back">←</span>Edit FAQ</h2>
+                </div>
+                    <div class="add-form">
+                        <form action="/faq/<%= faq._id %>?_method=PUT" method="POST">
+                        
+                            <div class="form-group">
+                                <label for="question">Question:</label>
+                                <input type="text" name="question" id="question" value="<%= faq.question %>">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="answer">Answer:</label>
+                                <textarea name="answer" id="answer"><%= faq.answer %></textarea>
+                            </div>
+
+                            <button type="submit" class="faq-btn">Save</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -79,9 +101,10 @@
         const addBtn = document.querySelector('.add-btn')
         const back = document.querySelector('.back')
 
-        // const editBtn = document.querySelectorAll('.edit')
+        const editBtn = document.querySelectorAll('.edit')
 
-        const modalE = document.querySelector('.modal')
+        const modalE = document.querySelector('#addmodal')
+        const editModalE = document.querySelector('#editModal')
 
         // Functions
         function showAddModal(){
@@ -89,12 +112,19 @@
         }
         function closeAddModal(){
             modalE.style.display = "none"
+            editModalE.style.display = "none"
+        }
+
+        function showEditModal(){
+            editModalE.style.display = "flex"
         }
 
         // Event Listeners
         newBtn.addEventListener('click', showAddModal)
         addBtn.addEventListener('click', closeAddModal)
         back.addEventListener('click', closeAddModal)
+
+        editBtn.addEventListener('click', showEditModal)
     </script>
 </body>
 </html>

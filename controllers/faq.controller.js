@@ -49,30 +49,31 @@ router.post('/', isAdmin,
 
 // Read
 // GET: 
-// router.get('/edit/:id',
-//     async (req, res) => {
-//         try{
-//             res.render('faq/show.ejs')
-//         }
-//         catch(err){
-//             console.log(err)
-//         } 
-//     }
-// )
-
-// Update
-// GET: 
 router.get('/:id/edit', isAdmin,
     async (req, res) => {
         try{
             const faq = await FAQ.findById(req.params.id)
-            res.render('faq/edit.ejs', {faq})
+            res.json(faq)
         }
         catch(err){
             console.log(err)
         } 
     }
 )
+
+// Update
+// // GET: 
+// router.get('/:id/edit', isAdmin,
+//     async (req, res) => {
+//         try{
+//             const faq = await FAQ.findById(req.params.id)
+//             res.render('faq/edit.ejs', {faq})
+//         }
+//         catch(err){
+//             console.log(err)
+//         } 
+//     }
+// )
 
 // PUT:
 router.put('/:id', isAdmin,
