@@ -42,11 +42,9 @@ html {
     align-items: center;
     text-align: center;
 }
-
 #nav img {
     width: 80%;
 }
-
 #nav a,
 #nav p {
     text-decoration: none;
@@ -58,19 +56,16 @@ html {
 
     font-size: 0.8rem;
 }
-
 #nav a {
     border: 0.05rem solid var(--body);
     border-radius: 1rem;
     box-shadow: 0 0.2rem #8aa7bca1;
 }
-
 #nav a:hover{
     background-color: var(--body);
     color: var(--primary);
     border: 0.1rem solid var(--primary)
 }
-
 .nav-up,
 .nav-down {
     display: flex;
@@ -95,11 +90,9 @@ html {
 
     height: 100%;
 }
-
 .content h1 {
     font-size: 3rem;
 }
-
 h1 a {
     text-decoration: none;
     color: var(--text)
@@ -340,7 +333,6 @@ button:hover {
     height: 45%;
     width: 45%;
 }
-
 .header {
     width: 100%;
     display: flex;

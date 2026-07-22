@@ -112,7 +112,7 @@
 
         <% if( ticket.status == "Completed" && ticket.owner._id == user._id && !ticket.feedback) { %>
             <button type="submit" class="feedback">Give Feedback</button>   
-        <% } else if ( user.isAdmin && ticket.feedback ) {%>
+        <% } else if ((ticket.owner._id == user._id || user.isAdmin) || ticket.feedback ) {%>
             <button type="submit" class="feedback">View Feedback</button>
         <% } %>
     </div>
@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-        <% } else if (ticket.feedback && ticket.owner._id == user._id || user.isAdmin ) { %> 
+        <% } if (ticket.feedback && (ticket.owner._id == user._id || user.isAdmin)) { %> 
             <!-- Add FeedBack: Modal Container -->
             <div class="modal">
                 <div class="modal-content" id="cat-index">
