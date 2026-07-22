@@ -112,7 +112,7 @@
 
         <% if( ticket.status == "Completed" && ticket.owner._id == user._id && !ticket.feedback) { %>
             <button type="submit" class="feedback">Give Feedback</button>   
-        <% } else if ((ticket.owner._id == user._id || user.isAdmin) || ticket.feedback ) {%>
+        <% } else if ((ticket.owner._id == user._id || user.isAdmin) && ticket.feedback ) {%>
             <button type="submit" class="feedback">View Feedback</button>
         <% } %>
     </div>

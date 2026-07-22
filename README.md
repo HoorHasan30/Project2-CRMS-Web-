@@ -1,9 +1,28 @@
-# Project Name
+<img width="1917" height="868" alt="image" src="https://github.com/user-attachments/assets/5d097bdc-e76c-4ce7-aacc-4ee985bb1689" /># Project Name
 CRMS
 
 ## Overview
+A full-stack web application developed to streamline the process of reporting, managing, and resolving support requests. The system enables users to submit and track support tickets, while administrators can manage categories, assign technicians, prioritize requests, and monitor ticket progress through an analytics dashboard.
 
 ## Screenshots
+### Home Page
+![home page](public/assets/screenshots/home.png)
+
+### Admin Pages
+#### Dashboard
+![give feedback](public/assets/screenshots/dashboard.png)
+
+#### All Tickets
+![All Tickets](public/assets/screenshots/allTickets.png)
+
+#### All Categories
+![All Categories](public/assets/screenshots/allcat.png)
+![All Subcategories](public/assets/screenshots/subcat.png)
+
+#### All Technicains
+![All Technicians](public/assets/screenshots/alltech.png)
+![give feedback](public/assets/screenshots/edittech.png)
+
 
 
 ## Technologies Used
@@ -17,6 +36,7 @@ CRMS
 - GitHub
 
 ## Getting Started
+
 
 ## Installation
 
@@ -143,5 +163,7 @@ CRMS
 - UI Enhancement
 - Technicain User Pages
 - Search & Filter
+- Responsive Design
 
 ## Credits
+Developed by Hoor Hasan as part of the General Assembly Software Engineering Bootcamp.
