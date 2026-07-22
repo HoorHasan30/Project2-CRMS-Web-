@@ -5,6 +5,13 @@
     --text: #0F1929;
     --primary: #53697F;
     --secondary: #8AA7BC;
+    --card: #fcfbfa;
+
+    --green: rgb(29, 117, 23);
+    --light-green: rgb(166, 208, 166);
+
+    --red: rgb(118, 20, 11) ;
+    --light-red: rgb(224, 180, 170);
 }
 
 body,
@@ -58,6 +65,12 @@ html {
     box-shadow: 0 0.2rem #8aa7bca1;
 }
 
+#nav a:hover{
+    background-color: var(--body);
+    color: var(--primary);
+    border: 0.1rem solid var(--primary)
+}
+
 .nav-up,
 .nav-down {
     display: flex;
@@ -94,7 +107,6 @@ h1 a {
 
 /* Home */
 .home{
-
     margin: 0;
     padding: 1%;
 
@@ -235,8 +247,9 @@ form {
     padding: 1%;
     margin-left: 3%;
     width: 65%;
-}
 
+    box-sizing: border-box,
+}
 button {
     font-family: "SN Pro", system-ui;
 
@@ -252,50 +265,74 @@ button {
 
     font-size: 1rem;
 }
-
 button:hover {
     cursor: pointer;
-}
 
+    background-color: var(--body);
+    color: var(--primary);
+    border: 0.1rem solid var(--primary)
+}
 .delete {
-    background-color: rgb(194, 40, 40);
+    background-color: var(--red);
 }
 
 /* Auth */
-
-.auth-form{
-    margin-top: 3rem;
-    width: 35%;
-}
-.auth-btn{
-    width: 20%;
-    padding: 1%;
-    box-shadow: 0 0.2rem #8aa7bca1;
-
-    font-size: 1rem;
-}
-.auth{
+.auth {
     margin: 0;
     margin-top: 2%;
 
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
-.auth-group{
+.auth-form {
+    margin-top: 3rem;
+    width: 35%;
+
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    flex-direction:column;
+    justify-content: center;
+    align-items: center;      /* Added */
+    flex-direction: column;
+
+    padding: 1%;
+
+    background-color: var(--card);
+    border-radius: 2.5rem;
+    box-shadow: 0 0.2rem #8aa7bca1;
 }
-.auth-group label{
+.auth-form form {
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;  
+    gap: 0.01rem;
+}
+.auth-group {
     width: 100%;
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    align-items: center; 
+}
+.auth-group label {
+    width: 30rem;   
     text-align: left;
+
 }
-.auth-group input{
+.auth-group input {
+    width: 30rem;
+}
+.auth-btns-group {
     width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.auth-btn {
+    width: 20%;
+    padding: 1%;
+    box-shadow: 0 0.2rem #8aa7bca1;
+    font-size: 1rem;
 }
 
 /* Categories */
@@ -335,8 +372,13 @@ button:hover {
     }
 
 }
+.new-btn a:hover{
+    color: var(--primary);
+}
 .new-btn:hover{
     cursor: pointer;
+    background-color: var(--body);
+    border: 0.1rem solid var(--primary)
 }
 .categories-container{
     width: 100%;
@@ -359,8 +401,16 @@ button:hover {
 
     border: 0.1rem solid var(--primary);
     border-radius: 1rem;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.cat-card:hover, .sub-cat-card:hover{
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.6rem 1.2rem rgba(15, 25, 41, 0.14);
+    border-color: var(--secondary);
 }
 .cat-card{
+    background-color: var(--card);
     height: 5rem;
     box-shadow: 0 0.2rem #8aa7bca1;
 }
@@ -427,7 +477,6 @@ button:hover {
     a{
         text-decoration: none;
         color: var(--text)
-
     }
 }
 
@@ -506,6 +555,8 @@ button:hover {
     gap: 2rem;
 }
 .tech-card{
+    background-color: var(--card);
+
     width: 15rem;
 
     border: 0.1rem solid var(--primary);
@@ -513,6 +564,13 @@ button:hover {
     border-radius: 1rem;
 
     padding: 1.2%;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.tech-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.6rem 1.2rem rgba(15, 25, 41, 0.14);
+    border-color: var(--secondary);
 }
 .tech-card .info {
     display: flex;
@@ -557,8 +615,8 @@ button:hover {
     }
 }
 #active{
-    background-color: rgb(166, 208, 166);
-    color:rgb(29, 117, 23);
+    background-color: var(--light-green);
+    color:var(--green);
 
     border-radius: 1rem;
     width: 6rem;
@@ -566,8 +624,8 @@ button:hover {
     font-size: 0.9rem;
 }
 #not-active{
-    background-color: rgb(224, 180, 170);
-    color:rgb(118, 20, 11);
+    background-color: var(--light-red);
+    color:var(--red);
 
     border-radius: 1rem;
     width: 6rem;
@@ -614,9 +672,26 @@ button:hover {
 
  /* Tickets */
  #new-ticket{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 0.02rem;
+
     margin-top: 0.7rem;
+    width: 55%;
+    height: auto;
+
+    padding: 1%;
+
+    background-color: var(--card);
+    border-radius: 2.5rem;
+    box-shadow: 0 0.2rem #8aa7bca1;
+}
+#new-ticket input, 
+#new-ticket textarea, 
+#new-ticket select{
     width: 65%;
- }
+}
 .ticket-container{
     width: 100%;
 
@@ -632,6 +707,7 @@ button:hover {
     gap: 2rem;
 }
 .ticket-card{
+    background-color: var(--card);
     width: 16rem;
 
     border: 0.1rem solid var(--primary);
@@ -639,6 +715,13 @@ button:hover {
     border-radius: 1rem;
 
     padding: 1.2%;
+
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+.ticket-card:hover {
+    transform: translateY(-0.25rem);
+    box-shadow: 0 0.6rem 1.2rem rgba(15, 25, 41, 0.14);
+    border-color: var(--secondary);
 }
 .tic-date{
     color:  rgb(184, 184, 178);
@@ -653,18 +736,24 @@ button:hover {
 .status-div{
     width: 6rem;
     border-radius: 1rem;
+
+    font-size: 0.9rem;
 }
 #pending{
     background-color: rgb(184, 184, 178);
+    color:  rgb(92, 92, 89);
 }
 #assigned{
-    background-color: rgb(247, 225, 146);
+    background-color: rgb(236, 224, 183);
+    color: rgb(206, 176, 67);
 }
 #completed{
-    background-color: rgb(166, 208, 166);
+    background-color: var(--light-green);
+    color: var(--green);
 }
 #reject-s{
-    background-color: rgb(224, 180, 170);
+    background-color: var(--light-red);
+    color: var(--red);
 }
 .tic-body{
     display: flex;
@@ -681,7 +770,6 @@ button:hover {
         text-align: left;
     }
 }
-
 .tic-prioraty, .tic-info{
     width: 100%;
 
@@ -728,7 +816,7 @@ button:hover {
     }
 }
 .ticket-btns{
-    width: 65%;
+    width: 55%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
@@ -737,28 +825,55 @@ button:hover {
 
     margin-right: 1rem;
 }
+.delete-tik{
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-color: var(--light-red);
+    color: var(--red);
+
+    border-radius: 2rem;
+    
+    font-size: 1.5rem;
+}
+.edit-tik{
+    width: 2.5rem;
+    height: 2.5rem;
+
+    background-color: var(--primary);
+    color: var(--body);
+
+    border-radius: 2rem;
+    
+    font-size: 1.5rem;
+}
 .tic-form button{
     width: 8rem;
     padding: 0.5%;
 }
 .reject {
-        background-color: var(--body);
-        border: 0.05rem solid var(--text);
-        color: var(--text);
-    }
+    background-color: var(--light-red);
+    border: none;
+    color: var(--red);
+}
 .tik-btns{
     width: 30%;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: row;
-
-    gap: 2rem;
+    
+    gap: 0;
 
     button {
-        padding: 1.5%;
+        padding: 2%;
     }
 }
+.completed-tik{
+        background-color: var(--light-green);
+        color: var(--green);
+        border: none;
+    }
 .feedback{
     width: 10% ;
     padding: 0.5%;
@@ -767,6 +882,8 @@ button:hover {
 .feedbackInput{
     width: 100%;
 }
+
+
 /* Analysis */
 .header-analysis{
     width: 100%;
@@ -780,6 +897,8 @@ button:hover {
 .analysis-card{
     width: 20rem;
 
+    background-color: var(--card);
+
     border: 0.1rem solid var(--primary);
     box-shadow: 0 0.2rem #8aa7bca1;
     border-radius: 1rem;
@@ -788,12 +907,12 @@ button:hover {
 
     h1{
         font-size: 5rem;
-        color: var(--text);
+        color: var(--primary);
         margin: 0;
     }
     p{
         font-size: 0.9rem;
-        color: var(--primary);
+        color: var(--secondary);
         margin: 0;
     }
 }
@@ -808,6 +927,8 @@ button:hover {
     margin-top: 1rem;
 }
 .status-barChart, .prioraty-barChart{
+    background-color: var(--card);
+
     width: 33.5rem;
 
     border: 0.1rem solid var(--primary);

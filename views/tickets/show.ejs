@@ -18,16 +18,16 @@
         
         <% if(ticket.status == "Pending" && ticket.owner._id == user._id) { %> 
             <div class="ticket-btns">
+                <div class="edit-tic">
+                    <form action="/tickets/<%= ticket._id %>/edit" method="GET">
+                        <button type="submit" class="edit-tik">✎</button>
+                    </form>      
+                </div>
                 <div class="delete-tic">
                     <form action="/tickets/<%= ticket._id %>/delete?_method=DELETE" method="POST">
-                        <button type="submit" class="delete">🗑</button>
+                        <button type="submit" class="delete-tik">🗑</button>
                     </form>    
                 </div>
-            <div class="edit-tic">
-                <form action="/tickets/<%= ticket._id %>/edit" method="GET">
-                    <button type="submit" class="edit">✎</button>
-                </form>      
-            </div>
         </div> 
         <% } %>
         
@@ -106,7 +106,7 @@
 
         <% if(user.isAdmin && ticket.prioraty && ticket.technician && ticket.status == "Assigned") { %>
             <form action="/tickets/<%= ticket._id %>/completed?_method=PUT" method="POST" class="tic-form">
-                <button type="submit">Completed</button>
+                <button type="submit" class="completed-tik">Completed</button>
             </form>    
         <% } %>
 
@@ -137,7 +137,7 @@
                     </div>
                 </div>
             </div>
-        <% } else if (ticket.feedback && (ticket.owner._id == user._id || user.isAdmin )) { %> 
+        <% } else if (ticket.feedback && ticket.owner._id == user._id || user.isAdmin ) { %> 
             <!-- Add FeedBack: Modal Container -->
             <div class="modal">
                 <div class="modal-content" id="cat-index">

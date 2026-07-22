@@ -13,11 +13,13 @@
     <div class="content">
         <h1>All Tickets</h1>
 
-        <div class="header">
-            <div class="new-btn">
-                <p><a href="/tickets/new">+ Add Ticket</a></p>
+        <% if(!user.isAdmin) { %>
+            <div class="header">
+                <div class="new-btn">
+                    <p><a href="/tickets/new">+ Add Ticket</a></p>
+                </div>
             </div>
-        </div>
+        <% } %>
 
         <div class="ticket-container">
             <% allTickets.forEach( ticket =>{  %>

@@ -53,8 +53,8 @@ app.use(passUserToView)
 
 // Routes
 app.use('/auth', authController)
-app.use('/status', statusController)
 app.use('/',indexController)
+app.use('/status', statusController)
 app.use('/admin', isAdmin, analysisController) // Restricted to admin role only
 app.use('/faq', faqController)
 app.use('/tickets', ticketController)

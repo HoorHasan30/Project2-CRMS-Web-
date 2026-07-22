@@ -59,7 +59,7 @@
                 <label for="subCategory">Sub-Category:</label>
 
                 <select disabled name="subCategory" id="subCategory">
-                    <option><%= ticket.subCategory.name %></option>
+                    <option><% if (ticket.subCategory) { %><%= ticket.subCategory.name %> <% } %></option>
                 </select>
             </div>
 
@@ -70,12 +70,12 @@
 
             <div class="form-group">
                 <label for="building">Building:</label>
-                <input disabled ="text" name="building" id="building" value="<%= ticket.building %>">
+                <input disabled ="text" name="building" id="building" value="<% if (ticket.building) { %><%= ticket.building %><% } %>">
             </div>
 
             <div class="form-group">
                 <label for="room">Room:</label>
-                <input disabled name="text" name="room" id="room" value="<%= ticket.room %>">
+                <input disabled name="text" name="room" id="room" value="<% if (ticket.room) { %><%= ticket.room %><% } %>">
             </div>
 
             <div class="btns-group">
