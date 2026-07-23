@@ -4,6 +4,9 @@ CRMS
 ## Overview
 A full-stack web application developed to streamline the process of reporting, managing, and resolving support requests. The system enables users to submit and track support tickets, while administrators can manage categories, assign technicians, prioritize requests, and monitor ticket progress through an analytics dashboard.
 
+## Deployed Link
+[Click Here](https://project2-crms-web.onrender.com/home)
+
 ## Screenshots
 ### Home Page
 ![home page](public/assets/screenshots/home.png)
@@ -23,8 +26,6 @@ A full-stack web application developed to streamline the process of reporting, m
 ![All Technicians](public/assets/screenshots/alltech.png)
 ![give feedback](public/assets/screenshots/edittech.png)
 
-
-
 ## Technologies Used
 - HTML
 - CSS
@@ -36,10 +37,11 @@ A full-stack web application developed to streamline the process of reporting, m
 - GitHub
 
 ## Getting Started
-
-
-## Installation
-
+### env Variables
+- MONGODB_URI
+- SESSION_SECRET
+- PORT
+- 
 ## User Stories
 ### Guest (Not Logged In User)
 - As a guest, I want to sign-up in the system as a new user
